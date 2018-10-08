@@ -4,21 +4,21 @@ public class password
 {
     public static void main(String[] args) 
     {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); //open input stream
         String input;
-        input = scanner.next();
+        input = scanner.next(); //string to check if palindrome
 
-		boolean trueOrFalse = false;
-		char[] letters;
+		boolean bool = false; //for checking if character is alpha
+		char[] letters; //array for all alpha characters
 		letters = new char[input.length()];
 		int counter = 0;
 		int blanks = 0;
 
-		for(int i = 0; i < input.length(); i++)
+		for(int i = 0; i < input.length(); i++) //parse input
 		{
-			trueOrFalse = Character.isLetter(input.charAt(i));
+			bool = Character.isLetter(input.charAt(i));
 
-			if(trueOrFalse == true)
+			if(bool == true)
 			{
 				letters[counter] = input.charAt(i);
 				counter++;
@@ -30,17 +30,17 @@ public class password
 			}
 		}
 
-		char[] backwardsLetters;
+		char[] backwardsLetters; //array for backwards arrangement
 		backwardsLetters = new char[input.length() - blanks];
 		int index = 0;
 
-		for(int i = input.length() - blanks - 1; i >= 0; i--)
+		for(int i = input.length() - blanks - 1; i >= 0; i--) //fill array
 		{
 			backwardsLetters[index] = letters[i];
 			index++;
 		}
 
-		for(int i = 0; i < input.length() - blanks - 1; i++)
+		for(int i = 0; i < input.length() - blanks - 1; i++) //check if arrays are same - palindrome
 		{
 			if(letters[i] != backwardsLetters[i])
 			{
@@ -51,6 +51,6 @@ public class password
 		}
 
 		System.out.println("YES");
-		scanner.close();
+		scanner.close(); //close input stream
 	}
 }
